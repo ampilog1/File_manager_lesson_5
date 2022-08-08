@@ -45,7 +45,11 @@
 После выполнения какого либо из пунктов снова возвращаемся в меню, пока пользователь не выберет выход
 3. Выложите проект на github:
 4. Можно сдать задание в виде pull request:
+
 """
+import os
+import shutil
+
 while True:
     print('1. создать папку')
     print('2. удалить (файл/папку)')
@@ -62,22 +66,31 @@ while True:
 
     choice = input('Выберите пункт меню')
     if choice == '1':
-        pass
+        name_dir = input('введите название папки')
+        if not os.path.exists(name_dir):
+            os.mkdir(name_dir)
+        else:
+            print('Такая папка уже существует')
     elif choice == '2':
-        # money = int(input('введите сумму покупки'))
-        # if money > money_all:
-        #     print('недостаточно средств')
-        # else:
-        #     money_all -= money
-        #     purchase = input('введите название покупки')
-        #     purchase_history.append((purchase, money))
-
+        name_dir = input('введите название папки')
+        if  os.path.exists(name_dir):
+            os.rmdir(name_dir)
+        else:
+            print('Такой папки не существует')
     elif choice == '3':
-        # print(purchase_history)
+        name_dir1 = input('введите название копируемоей папки')
+        name_dir2 = input('введите название новой  папки')
+        if os.path.exists(name_dir1) and not os.path.exists(name_dir2):
+            shutil.copy(name_dir1, name_dir2)
+        else:
+            print('либо не существует такая копируемая папка, либо уже существует папка с названием новой')
     elif choice == '4':
-        break
+        print(os.listdir())
     elif choice == '5':
-        pass
+        content = os.listdir()
+        for file in content:
+            if os.path.isfile(file):
+                print(file)
     elif choice == '6':
         pass
     elif choice == '7':
@@ -91,6 +104,6 @@ while True:
     elif choice == '11':
         pass
     elif choice == '12':
-        pass
+        break
     else:
         print('Неверный пункт меню')
