@@ -33,32 +33,33 @@
 
 Для реализации основного меню можно использовать пример ниже или написать свой
 """
-money_all = 0
-purchase_history = []
+def my_bill()
+    money_all = 0
+    purchase_history = []
 
 
-while True:
-    print('1. пополнение счета')
-    print('2. покупка')
-    print('3. история покупок')
-    print('4. выход')
+    while True:
+        print('1. пополнение счета')
+        print('2. покупка')
+        print('3. история покупок')
+        print('4. выход')
 
-    choice = input('Выберите пункт меню')
-    if choice == '1':
-        money = int(input('введите сумму'))
-        money_all += money
-    elif choice == '2':
-        money = int(input('введите сумму покупки'))
-        if money > money_all:
-            print('недостаточно средств')
+        choice = input('Выберите пункт меню')
+        if choice == '1':
+            money = int(input('введите сумму'))
+            money_all += money
+        elif choice == '2':
+            money = int(input('введите сумму покупки'))
+            if money > money_all:
+                print('недостаточно средств')
+            else:
+                money_all -= money
+                purchase = input('введите название покупки')
+                purchase_history.append((purchase, money))
+
+        elif choice == '3':
+            print(purchase_history)
+        elif choice == '4':
+            break
         else:
-            money_all -= money
-            purchase = input('введите название покупки')
-            purchase_history.append((purchase, money))
-
-    elif choice == '3':
-        print(purchase_history)
-    elif choice == '4':
-        break
-    else:
-        print('Неверный пункт меню')
+            print('Неверный пункт меню')

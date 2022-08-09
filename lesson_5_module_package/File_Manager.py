@@ -50,6 +50,8 @@
 import os
 import shutil
 import sys
+from use_functions import my_bill
+from borndayforewer import victory_birth_date_selebrity
 
 while True:
     print('1. создать папку')
@@ -102,11 +104,12 @@ while True:
     elif choice == '8':
         print('Ivan Shestopalov')
     elif choice == '9':
-        pass
+        victory_birth_date_selebrity()
     elif choice == '10':
-        pass
+        my_bill()
     elif choice == '11':
-        pass
+        path = input('введите путь к рабочей папке в формате ')
+        chdir(path)
     elif choice == '12':
         break
     else:
