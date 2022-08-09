@@ -49,6 +49,7 @@
 """
 import os
 import shutil
+import sys
 
 while True:
     print('1. создать папку')
@@ -88,15 +89,18 @@ while True:
         print(os.listdir())
     elif choice == '5':
         content = os.listdir()
+        for direct in content:
+            if os.path.isfile(direct):
+                print(direct)
+    elif choice == '6':
+        content = os.listdir()
         for file in content:
             if os.path.isfile(file):
                 print(file)
-    elif choice == '6':
-        pass
     elif choice == '7':
-        pass
+        print(sys.platform)
     elif choice == '8':
-        pass
+        print('Ivan Shestopalov')
     elif choice == '9':
         pass
     elif choice == '10':
