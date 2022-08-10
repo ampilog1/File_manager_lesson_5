@@ -67,32 +67,32 @@ while True:
     print('11. смена рабочей директории')
     print('12. выход')
 
-    choice = input('Выберите пункт меню')
+    choice = input('Выберите пункт меню: ')
     if choice == '1':
-        name_dir = input('введите название папки')
+        name_dir = input('Введите название папки: ')
         if not os.path.exists(name_dir):
             os.mkdir(name_dir)
         else:
-            print('Такая папка уже существует')
+            print('Такая папка уже существует: ')
     elif choice == '2':
-        name_dir = input('введите название папки')
+        name_dir = input('введите название папки: ')
         if  os.path.exists(name_dir):
             os.rmdir(name_dir)
         else:
-            print('Такой папки не существует')
+            print('Такой папки не существует: ')
     elif choice == '3':
-        name_dir1 = input('введите название копируемоей папки')
-        name_dir2 = input('введите название новой  папки')
+        name_dir1 = input('введите название копируемоей папки: ')
+        name_dir2 = input('введите название новой  папки: ')
         if os.path.exists(name_dir1) and not os.path.exists(name_dir2):
             shutil.copy(name_dir1, name_dir2)
         else:
-            print('либо не существует такая копируемая папка, либо уже существует папка с названием новой')
+            print('либо не существует такая копируемая папка, либо уже существует папка с названием новой: ')
     elif choice == '4':
         print(os.listdir())
     elif choice == '5':
         content = os.listdir()
         for direct in content:
-            if os.path.isfile(direct):
+            if os.path.isdir(direct):
                 print(direct)
     elif choice == '6':
         content = os.listdir()
@@ -109,9 +109,10 @@ while True:
         my_bill()
     elif choice == '11':
         print(f'Вы находитесь {os.getcwd()}')
-        new_directory = input('введите название рабочей папки')
+        new_directory = input('введите название рабочей папки: ')
+        os.mkdir(new_directory)
         path = os.path.join(os.getcwd(), new_directory)
-        chdir(path)
+        os.chdir(path)
         print(f'А теперь вы находитесь {os.getcwd()}')
     elif choice == '12':
         break
