@@ -108,8 +108,11 @@ while True:
     elif choice == '10':
         my_bill()
     elif choice == '11':
-        path = input('введите путь к рабочей папке в формате ')
+        print(f'Вы находитесь {os.getcwd()}')
+        new_directory = input('введите название рабочей папки')
+        path = os.path.join(os.getcwd(), new_directory)
         chdir(path)
+        print(f'А теперь вы находитесь {os.getcwd()}')
     elif choice == '12':
         break
     else:
